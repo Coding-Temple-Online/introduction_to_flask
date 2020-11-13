@@ -11,10 +11,13 @@ class User:
         return f'<User: [{self.id}] {self.first_name} {self.last_name}>'
 
 class Post:
+    _instances = []
+
     def __init__(self, _id, body):
         self.id = _id
         self.body = body
         self.created_on = dt.utcnow()
+        self._instances.append(self)
 
     def __repr__(self):
         return f'<Post: [{self.id}] {self.body}>'
